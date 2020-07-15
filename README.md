@@ -1,5 +1,7 @@
 # LinkedIn Duplicate Job Remover
 
+(in-progress)
+
 Ever been looking through jobs on LinkedIn and realized most of the postings are duplicates and repostings of the same jobs over and over?
 
 Here is a quick and unpolished script to remove duplicates while searching on the /jobs/search/ section of LinkedIn.
@@ -45,7 +47,8 @@ Note that since there is no stop to the interval, you should not keep this scrip
       try {
         const companyName = job.querySelector('.job-card-container__company-name').innerText;
         const jobTitle = job.querySelector('.job-card-list__title').innerText;
-        const jobReference = `${companyName}—${jobTitle}`;
+        const jobId = job.dataset.jobId;
+        const jobReference = `${companyName}—${jobTitle}–${jobId}`;
 
         if (seenJobs.has(jobReference)) {
           if (job.dataset.firstOfKind) return;
@@ -77,3 +80,7 @@ Note that since there is no stop to the interval, you should not keep this scrip
   const removeDupesInterval = setInterval(removeDupeJobs, 1500);
 })();
 ```
+
+## Issues
+
+The script is currently single-pass. If you attempt to revisit a page, the DOM elements will have been seen and will be removed. Should probably store and work with the entire DOM element.

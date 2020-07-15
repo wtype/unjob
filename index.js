@@ -25,7 +25,8 @@
       try {
         const companyName = job.querySelector('.job-card-container__company-name').innerText;
         const jobTitle = job.querySelector('.job-card-list__title').innerText;
-        const jobReference = `${companyName}—${jobTitle}`;
+        const jobId = job.dataset.jobId;
+        const jobReference = `${companyName}—${jobTitle}–${jobId}`;
 
         if (seenJobs.has(jobReference)) {
           if (job.dataset.firstOfKind) return;
