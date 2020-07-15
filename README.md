@@ -10,7 +10,7 @@ To use the script, copy and paste the code below into the developer console when
 
 The script will log jobs being removed and jobs that are good to look at in the console. This allows for easy copying and pasting of the end result to a new file for future reference.
 
-**Make sure you understand the risks associated with copying and pasting code into the developer console before doing so**
+**—Make sure you understand the risks associated with copying and pasting code into the developer console before doing so—**
 
 **Warning**
 
