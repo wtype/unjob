@@ -12,7 +12,7 @@ To use the script, copy and paste the code below into the [developer console](ht
 
 **Warning**
 
-I am not aware of the implications of using this script. You may be labeled as a robot, or worse: a bad human. This was simply written for practice to see how quickly a "dedupe" could go on the job search section. Hopefully you can learn from and adapt it for your own needs. 🍻
+I am not aware of the implications of using this script. You may be labeled as a robot, or worse: a bad human. This was simply written for practice to see how quickly a "dedupe" could go on the job search section. Hopefully you can learn from and adapt it for your own needs, but make sure you accept the risk and understand [LinkedIn's User Agreement](https://www.linkedin.com/legal/user-agreement#dos). 🍻
 
 ## Script
 
