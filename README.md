@@ -88,9 +88,11 @@ Note that since there is no stop to the interval, you should not keep this scrip
 })();
 ```
 
-## Issues
+### Issues
 
 The script is currently single-pass. If you attempt to revisit a page, the DOM elements will have been seen and will be removed. Should probably store and work with the entire DOM element.
+
+Potential for flagging and reCAPTCHA check.
 
 ## Multi-Pass Solution (In-Progress)
 
@@ -146,5 +148,5 @@ window.addEventListener('click', () => {
 });
 ```
 
-[ ] Non-private namespace
-[ ] Styling addition to page
+- [ ] Non-private namespace
+- [ ] Styling addition to page
