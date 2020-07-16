@@ -1,22 +1,3 @@
-# LinkedIn Duplicate Job Remover
-
-Ever been looking through jobs on LinkedIn and realized most of the postings are duplicates and repostings of the same jobs over and over?
-
-Here is a quick and unpolished script to remove duplicates while searching on the /jobs/search/ section of LinkedIn.
-
-As you move from page to page, this script will highlight the jobs you have not seen while removing those you have. Each time the script has finished on the page, it will log a table of already seen, unique jobs to the console. This allows for easy copying and pasting of the end result to a new file for future reference.
-
-To use the script, copy and paste the code below into the [developer console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console#Opening_the_Browser_Console) when on the job search page on LinkedIn.
-
-**—Make sure you understand the risks associated with copying and pasting code into the developer console before doing so—**
-
-**Warning**
-
-I am not aware of the implications of using this script. You may be labeled as a robot, or worse: a bad human. This was simply written for practice to see how quickly a "dedupe" could go on the job search section. Hopefully you can learn from and adapt it for your own needs. I've certainly found it to be a nice tool to help wade through the many duplicates on LinkedIn.
-
-## Script
-
-```javascript
 (() => {
   console.clear();
   console.log('%c Searching for duplicates... ', 'background:#8b83fc;color:black');
@@ -30,11 +11,14 @@ I am not aware of the implications of using this script. You may be labeled as a
   const isSamePage = () => currentPage === window.location.search;
 
   const currentPageIsValid = () => {
-    return window.location.hostname === 'www.linkedin.com' && window.location.pathname === '/jobs/search/';
+    return (
+      window.location.hostname === 'www.linkedin.com' &&
+      window.location.pathname === '/jobs/search/'
+    );
   };
 
   function removeDuplicates() {
-    if ((passes === 6 && isSamePage()) || !currentPageIsValid()) {
+    if (passes === 6 && isSamePage() || !currentPageIsValid()) {
       clearInterval(removeDuplicatesInterval);
       passes = 0;
 
@@ -47,7 +31,7 @@ I am not aware of the implications of using this script. You may be labeled as a
 
     const jobCards = document.querySelectorAll('.job-card-container');
 
-    jobCards.forEach((job) => {
+    jobCards.forEach(job => {
       try {
         const companyName = job.querySelector('.job-card-container__company-name').innerText;
         const jobTitle = job.querySelector('.job-card-list__title').innerText;
@@ -86,4 +70,3 @@ I am not aware of the implications of using this script. You may be labeled as a
     }
   });
 })();
-```

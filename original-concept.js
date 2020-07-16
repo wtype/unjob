@@ -1,3 +1,6 @@
+// Original concept and draft (single-pass script)
+// Use remove-duplicates.js instead.
+
 (() => {
   console.clear();
 
