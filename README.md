@@ -6,13 +6,13 @@ Here is a quick and unpolished script to remove duplicates while searching on th
 
 As you move from page to page, this script will highlight the jobs you have not seen while removing those you have. Each time the script has finished on the page, it will log a table of already seen, unique jobs to the console. This allows for easy copying and pasting of the end result to a new file for future reference.
 
-To use the script, copy and paste the code below into the [developer console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console#Opening_the_Browser_Console) when on the job search page on LinkedIn.
+To use the script, copy and paste the code below into the [developer console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console#Opening_the_Browser_Console) when on the [job search page](https://www.linkedin.com/jobs/search/) on LinkedIn.
 
 **—Make sure you understand the risks associated with copying and pasting code into the developer console before doing so—**
 
 **Warning**
 
-I am not aware of the implications of using this script. You may be labeled as a robot, or worse: a bad human. This was simply written for practice to see how quickly a "dedupe" could go on the job search section. Hopefully you can learn from and adapt it for your own needs. I've certainly found it to be a nice tool to help wade through the many duplicates on LinkedIn.
+I am not aware of the implications of using this script. You may be labeled as a robot, or worse: a bad human. This was simply written for practice to see how quickly a "dedupe" could go on the job search section. Hopefully you can learn from and adapt it for your own needs. 🍻
 
 ## Script
 
