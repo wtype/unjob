@@ -20,7 +20,7 @@ I am not aware of the implications of using this script. You may be labeled as a
 
 Note that since there is no stop to the interval, you should not keep this script running for long.
 
-## Script
+## Script (Single-Pass)
 
 ```javascript
 (() => {
