@@ -30,7 +30,10 @@ Note that since there is no stop to the interval, you should not keep this scrip
   let passes = 0;
 
   const currentPageIsValid = () => {
-    return window.location.hostname === 'www.linkedin.com' && window.location.pathname === '/jobs/search/';
+    return (
+      window.location.hostname === 'www.linkedin.com' &&
+      window.location.pathname === '/jobs/search/'
+    );
   };
 
   function removeDupeJobs() {
@@ -43,7 +46,7 @@ Note that since there is no stop to the interval, you should not keep this scrip
 
     const jobCards = document.querySelectorAll('.job-card-container');
 
-    jobCards.forEach((job) => {
+    jobCards.forEach(job => {
       try {
         const companyName = job.querySelector('.job-card-container__company-name').innerText;
         const jobTitle = job.querySelector('.job-card-list__title').innerText;
@@ -64,7 +67,11 @@ Note that since there is no stop to the interval, you should not keep this scrip
 
         if (passes && passes % 25 === 0) {
           console.clear();
-          console.log('%c NON-DUPLICATE JOBS ', 'background:#9ffc7e;color:#1a1a1a', `TOTAL: ${seenJobs.size}`);
+          console.log(
+            '%c NON-DUPLICATE JOBS ',
+            'background:#9ffc7e;color:#1a1a1a',
+            `TOTAL: ${seenJobs.size}`
+          );
           console.table(seenJobs);
         }
 
@@ -84,3 +91,60 @@ Note that since there is no stop to the interval, you should not keep this scrip
 ## Issues
 
 The script is currently single-pass. If you attempt to revisit a page, the DOM elements will have been seen and will be removed. Should probably store and work with the entire DOM element.
+
+## Multi-Pass Solution (In-Progress)
+
+```javascript
+const seenJobs = {};
+const runningInterval = 1500;
+let currentPage = window.location.search;
+let passes = 0;
+
+const isSamePage = () => currentPage === window.location.search;
+
+function removeDuplicates() {
+  if (passes === 6 && isSamePage) {
+    console.log('%c Stopping interval ', 'background:tomato;color:black');
+    clearInterval(removeDuplicatesInterval);
+    passes = 0;
+
+    console.clear();
+    console.table(seenJobs);
+    return;
+  }
+
+  const jobCards = document.querySelectorAll('.job-card-container');
+
+  jobCards.forEach(job => {
+    const companyName = job.querySelector('.job-card-container__company-name').innerText;
+    const jobTitle = job.querySelector('.job-card-list__title').innerText;
+    const jobId = job.dataset.jobId.slice(-10);
+    const jobReference = `${companyName}—${jobTitle}`;
+
+    if (jobReference in seenJobs) {
+      if (seenJobs[jobReference] === jobId) {
+        return;
+      } else {
+        console.log('%c Removing ', 'background:salmon;color:black', jobReference);
+        job.remove();
+      }
+    } else {
+      seenJobs[jobReference] = jobId;
+    }
+  });
+
+  passes += 1;
+}
+
+let removeDuplicatesInterval = setInterval(removeDuplicates, runningInterval);
+
+window.addEventListener('click', () => {
+  if (!isSamePage()) {
+    removeDuplicatesInterval = setInterval(removeDuplicates, runningInterval);
+    currentPage = window.location.search;
+  }
+});
+```
+
+[ ] Non-private namespace
+[ ] Styling addition to page
