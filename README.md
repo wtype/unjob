@@ -1,4 +1,4 @@
-# LinkedIn Duplicate Job Remover
+# Unjob: LinkedIn Duplicate Job Remover
 
 Ever been looking through jobs on LinkedIn and realized most of the postings are duplicates and repostings of the same jobs over and over?
 
