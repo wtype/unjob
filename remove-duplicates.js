@@ -70,3 +70,18 @@
     }
   });
 })();
+
+function autoTurnPages(value, interval = 2.5e4) {
+  if (!value || typeof value !== 'boolean') return;
+
+  setInterval(() => {
+    const page = document.querySelector('.active');
+    const nextPage = page.nextElementSibling.querySelector('button');
+
+    if (nextPage) {
+      nextPage.click();
+    } else {
+      return;
+    }
+  }, interval);
+}

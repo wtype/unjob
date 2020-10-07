@@ -86,4 +86,33 @@ I am not aware of the implications of using this script. You may be labeled as a
     }
   });
 })();
+
+function autoTurnPages(value, interval = 2.5e4) {
+  if (!value || typeof value !== 'boolean') return;
+
+  setInterval(() => {
+    const page = document.querySelector('.active');
+    const nextPage = page.nextElementSibling.querySelector('button');
+
+    if (nextPage) {
+      nextPage.click();
+    } else {
+      return;
+    }
+  }, interval);
+}
+```
+
+### Notes
+
+Exhausted from all that manual work?
+
+Copy and paste this into the console once the script is running to start auto-turning pages:
+
+```javascript
+autoTurnPages(true);
+
+// Or specify an interval (ms) to turn pages at
+
+autoTurnPages(true, 20000);
 ```
