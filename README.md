@@ -87,7 +87,7 @@ I am not aware of the implications of using this script. You may be labeled as a
   });
 })();
 
-function autoTurnPages(value, interval = 2.5) {
+function autoTurnPages(value, interval = 20.5) {
   if (!value || typeof value !== 'boolean') return;
 
   setInterval(() => {
@@ -99,7 +99,7 @@ function autoTurnPages(value, interval = 2.5) {
     } else {
       return;
     }
-  }, interval * 10000);
+  }, interval * 1000);
 }
 ```
 
@@ -114,5 +114,5 @@ autoTurnPages(true);
 
 // Or specify an interval (s) to turn pages at
 
-autoTurnPages(true, 2);
+autoTurnPages(true, 20);
 ```
