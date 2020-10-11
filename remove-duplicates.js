@@ -71,7 +71,7 @@
   });
 })();
 
-function autoTurnPages(value, interval = 2.5e4) {
+function autoTurnPages(value, interval = 2.5) {
   if (!value || typeof value !== 'boolean') return;
 
   setInterval(() => {
@@ -83,5 +83,5 @@ function autoTurnPages(value, interval = 2.5e4) {
     } else {
       return;
     }
-  }, interval);
+  }, interval * 10000);
 }

@@ -112,7 +112,7 @@ Copy and paste this into the console once the script is running to start auto-tu
 ```javascript
 autoTurnPages(true);
 
-// Or specify an interval (ms) to turn pages at
+// Or specify an interval (s) to turn pages at
 
-autoTurnPages(true, 20000);
+autoTurnPages(true, 2);
 ```
