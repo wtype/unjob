@@ -8,7 +8,7 @@ As you move from page to page, this script will highlight the jobs you have not 
 
 To use the script, copy and paste the code below into the [developer console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console#Opening_the_Browser_Console) when on the [job search page](https://www.linkedin.com/jobs/search/) on LinkedIn.
 
-**—Make sure you understand the risks associated with copying and pasting code into the developer console before doing so—**
+**Make sure you understand the risks associated with copying and pasting code into the developer console before doing so**
 
 **Warning**
 
@@ -111,8 +111,10 @@ Copy and paste this into the console once the script is running to start auto-tu
 
 ```javascript
 autoTurnPages(true);
+```
 
-// Or specify an interval (s) to turn pages at
+Or specify an interval (seconds) to turn pages for you.
 
+```javascript
 autoTurnPages(true, 20);
 ```
