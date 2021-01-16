@@ -2,7 +2,7 @@
 
 Ever been looking through jobs on LinkedIn and realized most of the postings are duplicates and repostings of the same jobs over and over?
 
-Here is a quick and unpolished script to remove duplicates while searching on the /jobs/search/ section of LinkedIn.
+Here is a quick and unpolished script to remove duplicates while searching on the `/jobs/search/` section of LinkedIn.
 
 As you move from page to page, this script will highlight the jobs you have not seen while removing those you have. Each time the script has finished on the page, it will log a table of already seen, unique jobs to the console. This allows for easy copying and pasting of the end result to a new file for future reference.
 
